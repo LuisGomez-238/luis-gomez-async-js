@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-<<<<<<< HEAD
     // selects .event-log from the DOM & creates the log variable
     const log = document.querySelector(".event-log");
 
@@ -14,20 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // adds event listener for loadend event to xhr variable we created above
         // then sets a function to replace the log.textContent with the new status of xhr(new XMLHttpRequest)
-=======
-    const log = document.querySelector(".event-log");
-
-    document.querySelector("#xhr").addEventListener("click", () => {
-        log.textContent = "";
-
-        const xhr = new XMLHttpRequest();
-
->>>>>>> 2b16f4fe92853f877a5b93bee846de6698841a30
         xhr.addEventListener("loadend", () => {
             log.textContent = `${log.textContent}Finished with status: ${xhr.status}`;
         });
 
-<<<<<<< HEAD
         // we use the open method to initialize an HTTP request and set it's parameters the open
         // method is inherently asynchronus
         xhr.open(
@@ -42,18 +31,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // adds an event listener to the reload button & adds a function to that button 
     // that clears the log text and reloads the page.
-=======
-        xhr.open(
-            "GET",
-            "https://raw.githubusercontent.com/mdn/content/main/files/en-us/_wikihistory.json",
-        );
-        xhr.send();
-        log.textContent = `${log.textContent}Started XHR request\n`;
-    });
+    xhr.open(
+        "GET",
+        "https://raw.githubusercontent.com/mdn/content/main/files/en-us/_wikihistory.json",
+    );
+    xhr.send();
+    log.textContent = `${log.textContent}Started XHR request\n`;
+});
 
->>>>>>> 2b16f4fe92853f877a5b93bee846de6698841a30
-    document.querySelector("#reload").addEventListener("click", () => {
-        log.textContent = "";
-        document.location.reload();
-    });
+document.querySelector("#reload").addEventListener("click", () => {
+    log.textContent = "";
+    document.location.reload();
 });
